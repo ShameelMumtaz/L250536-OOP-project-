@@ -3,9 +3,7 @@
 #include <iostream>
 using namespace std;
 
-// ============================================================
-//  AcademicEntity — Abstract base for all people in the system
-// ============================================================
+
 class AcademicEntity {
 protected:
     string ID;
