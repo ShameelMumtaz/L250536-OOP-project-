@@ -1,0 +1,4 @@
+# CourseID | Title | TeacherID | Type | EnrolledStudentIDs
+C1001 | Data Structures | T1001 | Core | S1001,S1002
+C1002 | Software Engineering | T1001 | Elective | S1001,S1004
+C1003 | Database Lab | T1002 | Lab | S1003

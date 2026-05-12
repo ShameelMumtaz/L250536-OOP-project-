@@ -1,0 +1,4 @@
+# CourseType | Exam% | Assignment% | Quiz%
+Core | 50 | 30 | 20
+Elective | 30 | 40 | 30
+Lab | 0 | 60 | 40

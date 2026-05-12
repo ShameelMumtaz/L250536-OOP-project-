@@ -1,0 +1,9 @@
+# SectionID | Type | RawScore | MaxScore | Weightage
+SEC1001 | Exam | 78 | 100 | 50
+SEC1001 | Assignment | 85 | 100 | 30
+SEC1001 | Quiz | 70 | 100 | 20
+SEC1002 | Exam | 75 | 100 | 30
+SEC1002 | Assignment | 90 | 100 | 40
+SEC1002 | Quiz | 80 | 100 | 30
+SEC1003 | Assignment | 65 | 100 | 60
+SEC1003 | Quiz | 70 | 100 | 40

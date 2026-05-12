@@ -1,0 +1,1 @@
+# StudentID | SectionID | Type | RawScore | MaxScore | Weightage

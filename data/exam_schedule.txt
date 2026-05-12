@@ -1,0 +1,2 @@
+# === EXAM SCHEDULE ===
+# SectionID | CourseID | ExamSlot | Venues

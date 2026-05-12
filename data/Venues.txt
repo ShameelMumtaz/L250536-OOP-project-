@@ -1,0 +1,6 @@
+# RoomID | Capacity | HasComputers(1/0)
+V1001 | 60 | 0
+V1002 | 40 | 0
+V1003 | 30 | 1
+V1004 | 80 | 0
+V1005 | 25 | 1

@@ -1,0 +1,4 @@
+# SectionID | CourseID | TeacherID | VenueID | TimeSlot | StudentCount | ExamSlot | ExamVenues
+SEC1001 | C1001 | T1001 | V1001 | Mon 09:00-11:00 | 2 |  | 
+SEC1002 | C1002 | T1001 | V1002 | Tue 11:00-13:00 | 2 |  | 
+SEC1003 | C1003 | T1002 | V1003 | Wed 14:00-16:00 | 1 |  | 

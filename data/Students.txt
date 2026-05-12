@@ -1,0 +1,5 @@
+# ID | Name | Email | Type | GPA/minGPA | Status | CourseIDs | Grades
+S1001 | Ali Hassan | ali@fast.edu | Regular | 3.500000 | Active | C1001,C1002 | C1001=78.500000,C1002=85.000000
+S1002 | Sara Khan | sara@fast.edu | Scholarship | 3.200000:2.500000 | Active | C1001 | C1001=72.000000
+S1003 | John Smith | john@fast.edu | Exchange | N/A | Active | C1003 | C1003=65.000000
+S1004 | Fatima Malik | fatima@fast.edu | Scholarship | 1.800000:2.500000 | Probation | C1002 | C1002=45.000000
