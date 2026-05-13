@@ -13,9 +13,7 @@
 #include <map>
 using namespace std;
 
-// ============================================================
-//  DatabaseManager — handles all file I/O for the system
-// ============================================================
+
 class DatabaseManager {
 private:
     string dataDir;
@@ -38,9 +36,6 @@ private:
 public:
     DatabaseManager(const string& dir = "data/") : dataDir(dir) {}
 
-    // ─────────────────────────────────────────────────────────
-    //  WEIGHTAGES  (read from weightages.txt; configurable)
-    // ─────────────────────────────────────────────────────────
     map<string, WeightageConfig> loadWeightages() const {
         map<string, WeightageConfig> wmap;
         // Sensible defaults so the system works even without the file
@@ -77,9 +72,7 @@ public:
               << kv.second.assignPct << " | " << kv.second.quizPct << "\n";
     }
 
-    // ─────────────────────────────────────────────────────────
-    //  VENUES
-    // ─────────────────────────────────────────────────────────
+
     vector<Venue*> loadVenues() const {
         vector<Venue*> venues;
         ifstream f(dataDir + "Venues.txt");
@@ -102,10 +95,7 @@ public:
               << " | " << (v->getHasComputers() ? 1 : 0) << "\n";
     }
 
-    // ─────────────────────────────────────────────────────────
-    //  TEACHERS
-    //  Format: ID | Name | Email | AvgFeedback | CourseIDs
-    // ─────────────────────────────────────────────────────────
+ 
     vector<Teacher*> loadTeachers() const {
         vector<Teacher*> teachers;
         ifstream f(dataDir + "Teachers.txt");
@@ -141,10 +131,7 @@ public:
         }
     }
 
-    // ─────────────────────────────────────────────────────────
-    //  FEEDBACK  (NEW — persists individual feedback entries)
-    //  Format: TeacherID | StudentID | Rating | Comment
-    // ─────────────────────────────────────────────────────────
+  
     void saveFeedback(const vector<Teacher*>& teachers) const {
         ofstream f(dataDir + "Feedback.txt");
         f << "# TeacherID | StudentID | Rating | Comment\n";
@@ -192,10 +179,7 @@ public:
         }
     }
 
-    // ─────────────────────────────────────────────────────────
-    //  STUDENTS
-    //  Format: ID | Name | Email | Type | GPA/minGPA | Status | CourseIDs | Grades
-    // ─────────────────────────────────────────────────────────
+  
     vector<Student*> loadStudents() const {
         vector<Student*> students;
         ifstream f(dataDir + "Students.txt");
@@ -294,9 +278,7 @@ public:
         }
     }
 
-    // ─────────────────────────────────────────────────────────
-    //  COURSES
-    // ─────────────────────────────────────────────────────────
+    
     vector<Course*> loadCourses(const map<string, WeightageConfig>& wmap) const {
         vector<Course*> courses;
         ifstream f(dataDir + "Courses.txt");
@@ -339,9 +321,7 @@ public:
         }
     }
 
-    // ─────────────────────────────────────────────────────────
-    //  SECTIONS
-    // ─────────────────────────────────────────────────────────
+   
     vector<Section*> loadSections() const {
         vector<Section*> sections;
         ifstream f(dataDir + "sections.txt");
@@ -378,10 +358,7 @@ public:
         }
     }
 
-    // ─────────────────────────────────────────────────────────
-    //  SECTION ASSESSMENT TEMPLATES
-    //  Format: SectionID | Type | RawScore | MaxScore | Weightage
-    // ─────────────────────────────────────────────────────────
+    
     map<string, vector<Assessment*>> loadAssessments() const {
         map<string, vector<Assessment*>> amap;
         ifstream f(dataDir + "assessments.txt");
@@ -417,10 +394,7 @@ public:
                   << a->getWeightage() << "\n";
     }
 
-    // ─────────────────────────────────────────────────────────
-    //  PER-STUDENT MARKS  — individual assessment scores
-    //  Format: StudentID | SectionID | Type | RawScore | MaxScore | Weightage
-    // ─────────────────────────────────────────────────────────
+
     void saveStudentMarks(const vector<Student*>& students) const {
         ofstream f(dataDir + "StudentMarks.txt");
         f << "# StudentID | SectionID | Type | RawScore | MaxScore | Weightage\n";
@@ -468,9 +442,7 @@ public:
         }
     }
 
-    // ─────────────────────────────────────────────────────────
-    //  EXAM SCHEDULE  (written by Scheduler, read-only for display)
-    // ─────────────────────────────────────────────────────────
+
     void saveExamSchedule(const vector<Section*>& sections) const {
         ofstream f(dataDir + "exam_schedule.txt");
         f << "# === EXAM SCHEDULE ===\n";
@@ -485,9 +457,7 @@ public:
         }
     }
 
-    // ─────────────────────────────────────────────────────────
-    //  Convenience: save everything at once
-    // ─────────────────────────────────────────────────────────
+  
     void saveAll(const vector<Student*>& students,
                  const vector<Teacher*>& teachers,
                  const vector<Course*>&  courses,
