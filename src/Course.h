@@ -7,25 +7,20 @@
 #include <sstream>
 using namespace std;
 
-// ============================================================
-//  Weightage config read from weightages.txt
-//  Format: CourseType | Exam% | Assignment% | Quiz%
-// ============================================================
+
 struct WeightageConfig {
     double examPct   = 50;
     double assignPct = 30;
     double quizPct   = 20;
 };
 
-// ============================================================
-//  Course — Abstract base
-// ============================================================
+
 class Course {
 protected:
     string courseID;
     string title;
     string teacherID;
-    string courseType;          // "Core", "Elective", "Lab"
+    string courseType;         
     vector<string> enrolledStudentIDs;
     vector<Assessment*> assessments;
     WeightageConfig wConfig;
@@ -87,9 +82,7 @@ public:
     }
 };
 
-// ============================================================
-//  CoreCourse — heavy final exam (3-hour slot)
-// ============================================================
+
 class CoreCourse : public Course {
 public:
     CoreCourse() { courseType = "Core"; }
@@ -115,9 +108,6 @@ public:
     }
 };
 
-// ============================================================
-//  ElectiveCourse — mix of assignments and final project (2-hour slot)
-// ============================================================
 class ElectiveCourse : public Course {
 public:
     ElectiveCourse() { courseType = "Elective"; }
@@ -143,9 +133,7 @@ public:
     }
 };
 
-// ============================================================
-//  LabCourse — 100% continuous assessment, needs computers, no final exam
-// ============================================================
+
 class LabCourse : public Course {
 public:
     LabCourse() { courseType = "Lab"; }
