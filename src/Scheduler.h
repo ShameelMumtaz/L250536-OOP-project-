@@ -9,12 +9,7 @@
 #include <algorithm>
 using namespace std;
 
-// ============================================================
-//  Scheduler — assigns venues + time slots to sections for exams
-//  BUG FIX #5: venueOccupied is rebuilt from existing data before
-//              resolveConflicts() so it works standalone (not just
-//              after scheduleExams()).
-// ============================================================
+
 class Scheduler {
 private:
     vector<string> timeSlots = {
@@ -50,9 +45,9 @@ public:
     void scheduleExams(vector<Section*>& sections,
                        vector<Course*>&  courses,
                        vector<Venue*>&   venues) {
-        cout << "\n  ╔═══════════════════════════════════════╗" << endl;
-        cout << "  ║        EXAM SCHEDULING ENGINE         ║" << endl;
-        cout << "  ╚═══════════════════════════════════════╝" << endl;
+     
+        cout << "          EXAM SCHEDULING ENGINE         " << endl;
+      
 
         // BUG FIX #5: start fresh but keep any already-scheduled slots
         rebuildOccupied(sections);
