@@ -27,9 +27,9 @@ private:
     vector<Section*> sections;
     vector<Venue*>   venues;
     map<string, WeightageConfig>        weightages;
-    map<string, vector<Assessment*>>    sectionAssessments; // templates
+    map<string, vector<Assessment*>>    sectionAssessments; 
 
-    // ── Lookup helpers ────────────────────────────────────
+    
     Student* findStudent(const string& id) const {
         for (auto s : students) if (s->getID() == id) return s;
         return nullptr;
@@ -57,7 +57,6 @@ private:
     bool sectionExists(const string& id) const { return findSection(id) != nullptr; }
     bool venueExists  (const string& id) const { return findVenue(id)   != nullptr; }
 
-    // Auto-generate next unique ID by finding max numeric suffix
     string nextID(const string& prefix, const vector<string>& ids) const {
         int maxNum = 999;
         for (const auto& id : ids) {
@@ -121,9 +120,7 @@ public:
         UI::success("All data saved to files.");
     }
 
-    // ══════════════════════════════════════════════════════
-    //  FEATURE 1 — Student Management
-    // ══════════════════════════════════════════════════════
+
     void menuStudents() {
         while (true) {
             UI::banner("STUDENT MANAGEMENT");
@@ -234,9 +231,7 @@ public:
         s->viewTranscript();
     }
 
-    // ══════════════════════════════════════════════════════
-    //  FEATURE 2 — Teacher Management
-    // ══════════════════════════════════════════════════════
+    
     void menuTeachers() {
         while (true) {
             UI::banner("TEACHER MANAGEMENT");
@@ -328,9 +323,7 @@ public:
         t->displayFeedback();
     }
 
-    // ══════════════════════════════════════════════════════
-    //  FEATURE 3 — Course Management
-    // ══════════════════════════════════════════════════════
+   
     void menuCourses() {
         while (true) {
             UI::banner("COURSE MANAGEMENT");
@@ -476,9 +469,7 @@ public:
         UI::success("Weightages for " + type + " updated and saved.");
     }
 
-    // ══════════════════════════════════════════════════════
-    //  FEATURE 4 — Smart Registration
-    // ══════════════════════════════════════════════════════
+
     void menuRegistration() {
         while (true) {
             UI::banner("SMART REGISTRATION");
@@ -586,9 +577,7 @@ public:
         }
     }
 
-    // ══════════════════════════════════════════════════════
-    //  FEATURE 5 — Section Management
-    // ══════════════════════════════════════════════════════
+   
     void menuSections() {
         while (true) {
             UI::banner("SECTION MANAGEMENT");
@@ -691,9 +680,6 @@ public:
         UI::error("Section not found.");
     }
 
-    // ══════════════════════════════════════════════════════
-    //  FEATURE 6 — Venue Management
-    // ══════════════════════════════════════════════════════
     void menuVenues() {
         while (true) {
             UI::banner("VENUE MANAGEMENT");
@@ -744,9 +730,6 @@ public:
         UI::error("Venue not found.");
     }
 
-    // ══════════════════════════════════════════════════════
-    //  FEATURE 7 — Teacher Feedback System
-    // ══════════════════════════════════════════════════════
     void menuFeedback() {
         while (true) {
             UI::banner("TEACHER FEEDBACK");
@@ -786,9 +769,6 @@ public:
         }
     }
 
-    // ══════════════════════════════════════════════════════
-    //  FEATURE 8 — Grading  (The Big Red Button)
-    // ══════════════════════════════════════════════════════
     void menuGrading() {
         while (true) {
             UI::banner("GRADING SYSTEM");
@@ -965,9 +945,6 @@ public:
         else UI::success("Grades recalculated.");
     }
 
-    // ══════════════════════════════════════════════════════
-    //  FEATURE 9 — Exam Scheduler
-    // ══════════════════════════════════════════════════════
     void menuScheduler() {
         while (true) {
             UI::banner("EXAM SCHEDULER");
@@ -1016,9 +993,6 @@ public:
         if (!any) UI::info("No exam schedule found. Run the scheduler first.");
     }
 
-    // ══════════════════════════════════════════════════════
-    //  MAIN RUN LOOP
-    // ══════════════════════════════════════════════════════
     void run() {
         loadAll();
 
