@@ -4,17 +4,14 @@
 #include <iostream>
 using namespace std;
 
-// ============================================================
-//  Section — links a Course, a Teacher, and a Venue (with time slot)
-// ============================================================
 class Section {
 private:
     string sectionID;
     string courseID;
     string teacherID;
     string venueID;
-    string timeSlot;          // e.g. "Mon 09:00-11:00"
-    int    studentCount;      // number of enrolled students
+    string timeSlot;        
+    int    studentCount;      
 
     // For exam scheduling (multiple venues possible)
     vector<string> examVenueIDs;
