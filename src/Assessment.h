@@ -3,9 +3,7 @@
 #include <iostream>
 using namespace std;
 
-// ============================================================
-//  Assessment — Abstract base for all grading items
-// ============================================================
+
 class Assessment {
 protected:
     string type;       // "Exam", "Quiz", "Assignment"
@@ -47,9 +45,7 @@ public:
     }
 };
 
-// ============================================================
-//  Exam
-// ============================================================
+
 class Exam : public Assessment {
 public:
     Exam() : Assessment("Exam", 0, 100, 0) {}
@@ -62,9 +58,6 @@ public:
     }
 };
 
-// ============================================================
-//  Quiz
-// ============================================================
 class Quiz : public Assessment {
 public:
     Quiz() : Assessment("Quiz", 0, 100, 0) {}
@@ -78,8 +71,7 @@ public:
 };
 
 
-//  Assignment
-// ============================================================
+
 class Assignment : public Assessment {
 public:
     Assignment() : Assessment("Assignment", 0, 100, 0) {}
