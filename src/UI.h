@@ -5,9 +5,7 @@
 #include <climits>
 using namespace std;
 
-// ============================================================
-//  UI Utilities — user-friendly terminal interface helpers
-// ============================================================
+
 namespace UI {
 
     inline void banner(const string& title) {
@@ -24,7 +22,7 @@ namespace UI {
         cout << string(w, c) << endl;
     }
 
-    // Prompt — reads a full line; handles EOF gracefully
+   
     inline string prompt(const string& msg) {
         cout << "  " << msg << ": ";
         string input;
@@ -38,7 +36,7 @@ namespace UI {
         return (a == string::npos) ? "" : input.substr(a, b - a + 1);
     }
 
-    // promptInt — validates integer input; handles EOF without infinite loop
+   
     inline int promptInt(const string& msg, int lo = INT_MIN, int hi = INT_MAX) {
         int attempts = 0;
         while (true) {
