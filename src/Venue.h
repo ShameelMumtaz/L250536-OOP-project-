@@ -3,9 +3,7 @@
 #include <iostream>
 using namespace std;
 
-// ============================================================
-//  Venue — A physical room / lab
-// ============================================================
+
 class Venue {
 private:
     string roomID;
