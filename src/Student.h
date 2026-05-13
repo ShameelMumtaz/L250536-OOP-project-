@@ -22,7 +22,7 @@ protected:
     string statusFlag;
     vector<string> enrolledCourseIDs;
     map<string, double> courseFinalGrades;
-    // BUG FIX #2: per-student, per-section assessments (individual marks)
+  
     map<string, vector<Assessment*>> studentSectionAssessments;
 
     static string toLetterGrade(double pct) {
@@ -83,12 +83,12 @@ public:
         }
     }
 
-    // Used by DatabaseManager to directly append a loaded assessment into a student's section
+    
     void appendStudentAssessmentForSection(const string& secID, Assessment* a) {
         studentSectionAssessments[secID].push_back(a);
     }
 
-    // BUG FIX #2: init this student's personal copy of assessments for a section
+   
     void initStudentAssessmentsForSection(const string& secID,
                                           const vector<Assessment*>& templateAssessments) {
         if (studentSectionAssessments.count(secID)) return; // already initialised
@@ -129,9 +129,7 @@ public:
     void setFinalGrades(const map<string, double>& m) { courseFinalGrades = m; }
 };
 
-// ============================================================
-//  RegularStudent
-// ============================================================
+
 class RegularStudent : public Student {
     double gpa;
 public:
@@ -153,14 +151,14 @@ public:
     }
 
     void displayProfile() const override {
-        cout << "\n╔══════════════════════════════════════╗" << endl;
+       
         cout << "  REGULAR STUDENT PROFILE" << endl;
         cout << "  ID    : " << ID << endl;
         cout << "  Name  : " << name << endl;
         cout << "  Email : " << email << endl;
         cout << "  GPA   : " << fixed << setprecision(2) << gpa << endl;
         cout << "  Status: " << statusFlag << endl;
-        cout << "╚══════════════════════════════════════╝" << endl;
+        
     }
 
     void viewTranscript() const override {
@@ -179,9 +177,6 @@ public:
     }
 };
 
-// ============================================================
-//  ScholarshipStudent
-// ============================================================
 class ScholarshipStudent : public Student {
     double gpa;
     double minGPA;
@@ -207,7 +202,7 @@ public:
     }
 
     void displayProfile() const override {
-        cout << "\n╔══════════════════════════════════════╗" << endl;
+        
         cout << "  SCHOLARSHIP STUDENT PROFILE" << endl;
         cout << "  ID     : " << ID << endl;
         cout << "  Name   : " << name << endl;
@@ -215,7 +210,7 @@ public:
         cout << "  GPA    : " << fixed << setprecision(2) << gpa
              << " (Min required: " << minGPA << ")" << endl;
         cout << "  Status : " << statusFlag << endl;
-        cout << "╚══════════════════════════════════════╝" << endl;
+       
     }
 
     void viewTranscript() const override {
@@ -235,9 +230,6 @@ public:
     }
 };
 
-// ============================================================
-//  ExchangeStudent
-// ============================================================
 class ExchangeStudent : public Student {
 public:
     ExchangeStudent() { studentType = "Exchange"; }
@@ -248,14 +240,14 @@ public:
     void calculateGPA() override {} // No numeric GPA for exchange students
 
     void displayProfile() const override {
-        cout << "\n╔══════════════════════════════════════╗" << endl;
+      
         cout << "  EXCHANGE STUDENT PROFILE" << endl;
         cout << "  ID     : " << ID << endl;
         cout << "  Name   : " << name << endl;
         cout << "  Email  : " << email << endl;
         cout << "  Grading: Pass/Fail only" << endl;
         cout << "  Status : " << statusFlag << endl;
-        cout << "╚══════════════════════════════════════╝" << endl;
+      
     }
 
     void viewTranscript() const override {
